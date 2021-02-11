@@ -11,6 +11,7 @@ export class FilmService {
   constructor(private http: HttpClient) { }
 
   getTrending(){
-    return this.http.get(`${this.apiUrl}/trending/all/day${this.apiKey}`)
+    return this.http.get(`${this.apiUrl}/trending/all/week${this.apiKey}`);
+    
   }
 }
