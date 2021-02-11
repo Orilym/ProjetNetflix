@@ -1,19 +1,43 @@
 <section class="section">
     <div class="container">
+        <div class="card-content">
+            <h1 class="is-size-2">TRENDINGS</h1>
+        </div>
+        <ngx-slick-carousel class="carousel" 
+                            #slickModal="slick-carousel" 
+                            [config]="slideConfig" 
+                            (init)="slickInit($event)"
+                            (breakpoint)="breakpoint($event)"
+                            (afterChange)="afterChange($event)"
+                            (beforeChange)="beforeChange($event)">
+            <div ngxSlickItem *ngFor="let film of films.results" class="slide">
+                <img src="https://image.tmdb.org/t/p/w200/{{film.poster_path}}" alt="" width="100%">
+            </div>
+                
+        </ngx-slick-carousel>
+
         <div class="columns is-multiline">
-            <div class="column is-4" *ngFor="let film of films.results ">
-                <div class="card" style="display: flex;" >
-                    <div class="card-content" style="flex-direction: column;" >
-                        <img src="https://image.tmdb.org/t/p/w300/{{film.poster_path}}" alt="tarace">
-                        <div>
-                        <div class=" is-bold " *ngIf="film.original_name != undefined; else original_title " ng>
-                            {{film.original_name}}
-                        </div>
-                        <ng-template #original_title>
-                            {{film.original_title}}
-                        </ng-template>
-                        </div>
+            <div class="column is-2" *ngFor="let film of films.results ">
+                <div class="card has-background-dark" >
+                    <div class="card-image" >
+                        <figure class="image">
+                            <img src="https://image.tmdb.org/t/p/w300/{{film.poster_path}}" alt="tarace" style="margin ; border-radius: 5px;">
+                        </figure>
+                        
                     </div>
+                        <div class="card-content has-text-white">
+                            <div class="media">
+                                <div class="media-content">
+                                    <div *ngIf="film.original_name != undefined; else original_title ">
+                                        {{film.original_name}}                               
+                                    </div>
+                                    <ng-template #original_title>
+                                        {{film.original_title}}
+                                    </ng-template> 
+                                </div>
+                            </div>      
+                        </div>
+                    
                 </div>
             </div>
         </div>
