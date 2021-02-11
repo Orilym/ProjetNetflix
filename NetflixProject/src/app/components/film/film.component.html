@@ -1,10 +1,18 @@
 <section class="section">
     <div class="container">
         <div class="columns is-multiline">
-            <div class="column is-4" *ngFor="let film of films.children | async">
-                <div class="card">
-                    <div class="card-content">
-                        {{film.name}}
+            <div class="column is-4" *ngFor="let film of films.results ">
+                <div class="card" style="display: flex;" >
+                    <div class="card-content" style="flex-direction: column;" >
+                        <img src="https://image.tmdb.org/t/p/w300/{{film.poster_path}}" alt="tarace">
+                        <div>
+                        <div class=" is-bold " *ngIf="film.original_name != undefined; else original_title " ng>
+                            {{film.original_name}}
+                        </div>
+                        <ng-template #original_title>
+                            {{film.original_title}}
+                        </ng-template>
+                        </div>
                     </div>
                 </div>
             </div>

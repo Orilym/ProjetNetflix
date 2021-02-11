@@ -13,7 +13,9 @@ films
   constructor(private filmService: FilmService) { }
 
   ngOnInit(): void {
-    this.films = this.filmService.getTrending();
+    this.filmService.getTrending().subscribe(data => this.films = data);
+  
+    
   }
 
 }
