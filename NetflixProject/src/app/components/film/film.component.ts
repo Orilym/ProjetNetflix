@@ -9,11 +9,29 @@ import { FilmService } from 'src/app/film.service';
 
 export class FilmComponent implements OnInit {
 
-films
-  constructor(private filmService: FilmService) { }
+  slideConfig = {"slidesToShow": 8, "slidesToScroll": 8};
+  
+  slickInit(e) {
+    console.log('slick initialized');
+  }
+  
+  breakpoint(e) {
+    console.log('breakpoint');
+  }
+  
+  afterChange(e) {
+    console.log('afterChange');
+  }
+  
+  beforeChange(e) {
+    console.log('beforeChange');
+  }
 
-  ngOnInit(): void {
-    this.filmService.getTrending().subscribe(data => this.films = data);
+ films
+   constructor(private filmService: FilmService) { }
+
+   ngOnInit(): void {
+     this.filmService.getTrending().subscribe(data => this.films = data);
   
     
   }
