@@ -14,4 +14,10 @@ export class FilmService {
     return this.http.get(`${this.apiUrl}/trending/all/week${this.apiKey}`);
     
   }
+  getTrendingDay(){
+    return this.http.get(`${this.apiUrl}/trending/all/day${this.apiKey}`);
+  }
+  getTopRated(){
+    return this.http.get(`${this.apiUrl}/movie/top_rated${this.apiKey}&language=fr-FR&page=1`)
+  }
 }

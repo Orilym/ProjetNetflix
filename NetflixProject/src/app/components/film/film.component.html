@@ -1,21 +1,64 @@
 <section class="section">
     <div class="container">
         <div class="card-content">
-            <h1 class="is-size-2">TRENDINGS</h1>
+            <h1 class="is-size-2">TRENDING TODAY</h1>
         </div>
-        <ngx-slick-carousel class="carousel" 
-                            #slickModal="slick-carousel" 
-                            [config]="slideConfig" 
-                            (init)="slickInit($event)"
-                            (breakpoint)="breakpoint($event)"
-                            (afterChange)="afterChange($event)"
-                            (beforeChange)="beforeChange($event)">
-            <div ngxSlickItem *ngFor="let film of films.results" class="slide">
-                <img src="https://image.tmdb.org/t/p/w200/{{film.poster_path}}" alt="" width="100%">
-            </div>
-                
-        </ngx-slick-carousel>
 
+
+            <ngx-slick-carousel class="slider-nav" 
+                                #slickModal="slick-carousel" 
+                                [config]="slideConfig" 
+                                (init)="slickInit($event)"
+                                (breakpoint)="breakpoint($event)"
+                                (afterChange)="afterChange($event)"
+                                (beforeChange)="beforeChange($event)">
+                <div ngxSlickItem *ngFor="let film of trendingDay.results" class="slide">
+                    <img src="https://image.tmdb.org/t/p/w200/{{film.poster_path}}" alt="{{film.original_name}}" width="100%" style="margin ; border-radius: 5px;">
+                </div>
+                
+            </ngx-slick-carousel>
+            
+
+            <ngx-slick-carousel class="slider-for" 
+                                #slickModal="slick-carousel" 
+                                [config]="slideConfig2" 
+                                (init)="slickInit($event)"
+                                (breakpoint)="breakpoint($event)"
+                                (afterChange)="afterChange($event)"
+                                (beforeChange)="beforeChange($event)">
+                <div ngxSlickItem *ngFor="let film of trendingDay.results" class="slide">
+                    <div class="columns is-multiline">
+                        <div class="column is-10">
+                            <div class="media">
+                                <div class="media-content">
+                                    <div class="columns">
+                                        <div class="column auto">
+                                            <img src="https://image.tmdb.org/t/p/w200/{{film.poster_path}}" alt="{{film.original_name}}" width="100%" style="margin ; border-radius: 5px;">
+                                        </div>
+                                        <div class="column auto">
+                                            <h2 class="is-size-3">Synopsis :</h2> 
+                                            <p class="is-size-4">{{film.overview}}</p>
+                                        </div>
+                                        <div class="column auto">
+                                            <div *ngIf="film.release_date != undefined; else noDate ">
+                                                <h2 class="is-size-3">Release Date :</h2>
+                                                <p class="is-size-4">{{film.release_date}}</p>                           
+                                            </div>
+                                            <ng-template #noDate>
+                                                
+                                            </ng-template>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </ngx-slick-carousel>
+    </div>
+
+
+<!--  
         <div class="columns is-multiline">
             <div class="column is-2" *ngFor="let film of films.results ">
                 <div class="card has-background-dark" >
@@ -40,6 +83,121 @@
                     
                 </div>
             </div>
+        </div> -->
+
+
+
+<!-- Deuxieme carousel-->
+        <div class="container">
+            <div class="card-content">
+                <h1 class="is-size-2">TRENDING THIS WEEK</h1>
+            </div>
+
+            <ngx-slick-carousel class="slider-nav4" 
+                                #slickModal="slick-carousel" 
+                                [config]="slideConfig3" 
+                                (init)="slickInit($event)"
+                                (breakpoint)="breakpoint($event)"
+                                (afterChange)="afterChange($event)"
+                                (beforeChange)="beforeChange($event)">
+                <div ngxSlickItem *ngFor="let film of trending.results" class="slide">
+                    <img src="https://image.tmdb.org/t/p/w200/{{film.poster_path}}" alt="film.original_name" width="100%" style="margin ; border-radius: 5px;">
+                </div>
+            </ngx-slick-carousel>
+
+            <ngx-slick-carousel class="slider-for3" 
+                                #slickModal="slick-carousel" 
+                                [config]="slideConfig4" 
+                                (init)="slickInit($event)"
+                                (breakpoint)="breakpoint($event)"
+                                (afterChange)="afterChange($event)"
+                                (beforeChange)="beforeChange($event)">
+                <div ngxSlickItem *ngFor="let film of trending.results" class="slide">
+                    <div class="columns is-multiline">
+                        <div class="column is-10">
+                            <div class="media">
+                                <div class="media-content">
+                                    <div class="columns">
+                                        <div class="column auto">
+                                            <img src="https://image.tmdb.org/t/p/w200/{{film.poster_path}}" alt="{{film.original_name}}" width="100%" style="margin ; border-radius: 5px;">
+                                        </div>
+                                        <div class="column auto">
+                                            <h2 class="is-size-3">Synopsis :</h2> 
+                                            <p class="is-size-4">{{film.overview}}</p>
+                                        </div>
+                                        <div class="column auto">
+                                            <div *ngIf="film.release_date != undefined; else noDate ">
+                                                <h2 class="is-size-3">Release Date :</h2>
+                                                <p class="is-size-4">{{film.release_date}}</p>                           
+                                            </div>
+                                            <ng-template #noDate>
+                                                
+                                            </ng-template>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </ngx-slick-carousel>
         </div>
+    
+
+<!-- troisieme carousel-->
+
+    <div class="container">
+        <div class="card-content">
+            <h1 class="is-size-2">TOP RATED</h1>
+        </div>
+        <ngx-slick-carousel class="slider-nav6" 
+                            #slickModal="slick-carousel" 
+                            [config]="slideConfig5" 
+                            (init)="slickInit($event)"
+                            (breakpoint)="breakpoint($event)"
+                            (afterChange)="afterChange($event)"
+                            (beforeChange)="beforeChange($event)">
+            <div ngxSlickItem *ngFor="let film of topRated.results" class="slide">
+                <img src="https://image.tmdb.org/t/p/w200/{{film.poster_path}}" alt="film.original_name" width="100%" style="margin ; border-radius: 5px;">
+            </div>
+        </ngx-slick-carousel>
+
+        <ngx-slick-carousel class="slider-for5" 
+                                #slickModal="slick-carousel" 
+                                [config]="slideConfig6" 
+                                (init)="slickInit($event)"
+                                (breakpoint)="breakpoint($event)"
+                                (afterChange)="afterChange($event)"
+                                (beforeChange)="beforeChange($event)">
+                <div ngxSlickItem *ngFor="let film of topRated.results" class="slide">
+                    <div class="columns is-multiline">
+                        <div class="column is-10">
+                            <div class="media">
+                                <div class="media-content">
+                                    <div class="columns">
+                                        <div class="column auto">
+                                            <img src="https://image.tmdb.org/t/p/w200/{{film.poster_path}}" alt="{{film.original_name}}" width="100%" style="margin ; border-radius: 5px;">
+                                        </div>
+                                        <div class="column auto">
+                                            <h2 class="is-size-3">Synopsis :</h2> 
+                                            <p class="is-size-4">{{film.overview}}</p>
+                                        </div>
+                                        <div class="column auto">
+                                            <div *ngIf="film.release_date != undefined; else noDate ">
+                                                <h2 class="is-size-3">Release Date :</h2>
+                                                <p class="is-size-4">{{film.release_date}}</p>                           
+                                            </div>
+                                            <ng-template #noDate>
+                                                
+                                            </ng-template>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </ngx-slick-carousel>
     </div>
+
 </section>

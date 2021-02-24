@@ -8,9 +8,16 @@ import { FilmService } from 'src/app/film.service';
 })
 
 export class FilmComponent implements OnInit {
+// premier carousel
+  slideConfig = {"slidesToShow": 7, "slidesToScroll": 1, arrows: false, dots: true, centerMode: true, focusOnSelect: true, asNavFor: '.slider-for'};
+  slideConfig2 = {slidesToShow: 1, slidesToScroll: 1, arrows: false, fade: true, asNavFor: '.slider-nav'};
+// deuxieme carousel
+  slideConfig3 = {"slidesToShow": 7, "slidesToScroll": 1, arrows: false, dots: true, centerMode: true, focusOnSelect: true, asNavFor: '.slider-for3'};
+  slideConfig4 = {slidesToShow: 1, slidesToScroll: 1, arrows: false, fade: true, asNavFor: '.slider-nav4'};
+// troisieme carousel
+slideConfig5 = {"slidesToShow": 7, "slidesToScroll": 1, arrows: false, dots: true, centerMode: true, focusOnSelect: true, asNavFor: '.slider-for5'};
+slideConfig6 = {slidesToShow: 1, slidesToScroll: 1, arrows: false, fade: true, asNavFor: '.slider-nav6'};
 
-  slideConfig = {"slidesToShow": 8, "slidesToScroll": 8};
-  
   slickInit(e) {
     console.log('slick initialized');
   }
@@ -27,11 +34,15 @@ export class FilmComponent implements OnInit {
     console.log('beforeChange');
   }
 
- films
+  trending
+  trendingDay
+  topRated
    constructor(private filmService: FilmService) { }
 
    ngOnInit(): void {
-     this.filmService.getTrending().subscribe(data => this.films = data);
+     this.filmService.getTrending().subscribe(data => this.trending = data);
+     this.filmService.getTrendingDay().subscribe(data => this.trendingDay = data);
+     this.filmService.getTopRated().subscribe(data => this.topRated = data);
   
     
   }
