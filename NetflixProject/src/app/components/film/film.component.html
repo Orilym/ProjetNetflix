@@ -35,19 +35,25 @@
                                         <div class="column auto">
                                             <img src="https://image.tmdb.org/t/p/w200/{{film.poster_path}}" alt="{{film.original_name}}" width="100%" style="margin ; border-radius: 5px;">
                                         </div>
-                                        <div class="column auto">
-                                            <h2 class="is-size-3">Synopsis :</h2> 
-                                            <p class="is-size-4">{{film.overview}}</p>
-                                        </div>
-                                        <div class="column auto">
+                                        <div class="column is-three-quarters">
+                                            <div class="message-header">
+                                                <h2 class="is-size-3"> 
+                                                    <div *ngIf="film.original_name != undefined; else OriginalTitle">{{film.original_name}}</div>
+                                                        <ng-template #OriginalTitle>
+                                                            {{film.original_title}}
+                                                        </ng-template>
+                                                </h2> 
+                                            </div>
+                                            <div class="message-body"><p class="is-size-4">{{film.overview}}</p></div>
+                                            
                                             <div *ngIf="film.release_date != undefined; else noDate ">
-                                                <h2 class="is-size-3">Release Date :</h2>
-                                                <p class="is-size-4">{{film.release_date}}</p>                           
+                                                <p class="message-body is-size-4">Release Date : {{film.release_date}}</p>                           
                                             </div>
                                             <ng-template #noDate>
                                                 
                                             </ng-template>
                                         </div>
+                                       
                                     </div>
                                 </div>
                             </div>
@@ -121,25 +127,30 @@
                                         <div class="column auto">
                                             <img src="https://image.tmdb.org/t/p/w200/{{film.poster_path}}" alt="{{film.original_name}}" width="100%" style="margin ; border-radius: 5px;">
                                         </div>
-                                        <div class="column auto">
-                                            <h2 class="is-size-3">Synopsis :</h2> 
-                                            <p class="is-size-4">{{film.overview}}</p>
-                                        </div>
-                                        <div class="column auto">
+                                        <div class="column is-three-quarters">
+                                            <div class="message-header">
+                                                <h2 class="is-size-3"> 
+                                                    <div *ngIf="film.original_name != undefined; else OriginalTitle">{{film.original_name}}</div>
+                                                        <ng-template #OriginalTitle>
+                                                            {{film.original_title}}
+                                                        </ng-template>
+                                                </h2> 
+                                            </div>
+                                            <div class="message-body"><p class="is-size-4">{{film.overview}}</p></div>
+                                            
                                             <div *ngIf="film.release_date != undefined; else noDate ">
-                                                <h2 class="is-size-3">Release Date :</h2>
-                                                <p class="is-size-4">{{film.release_date}}</p>                           
+                                                <p class=" message-body is-size-4">Release Date : {{film.release_date}}</p>                           
                                             </div>
                                             <ng-template #noDate>
                                                 
                                             </ng-template>
+                                        </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                </div>
             </ngx-slick-carousel>
         </div>
     
@@ -178,25 +189,30 @@
                                         <div class="column auto">
                                             <img src="https://image.tmdb.org/t/p/w200/{{film.poster_path}}" alt="{{film.original_name}}" width="100%" style="margin ; border-radius: 5px;">
                                         </div>
-                                        <div class="column auto">
-                                            <h2 class="is-size-3">Synopsis :</h2> 
-                                            <p class="is-size-4">{{film.overview}}</p>
-                                        </div>
-                                        <div class="column auto">
+                                        <div class="column is-three-quarters">
+                                            <div class="message-header">
+                                                <h2 class="is-size-3"> 
+                                                    <div *ngIf="film.original_name != undefined; else OriginalTitle">{{film.original_name}}</div>
+                                                        <ng-template #OriginalTitle>
+                                                            {{film.original_title}}
+                                                        </ng-template>
+                                                </h2> 
+                                            </div>
+                                            <div class="message-body"><p class="is-size-4">{{film.overview}}</p></div>
+                                            
                                             <div *ngIf="film.release_date != undefined; else noDate ">
-                                                <h2 class="is-size-3">Release Date :</h2>
-                                                <p class="is-size-4">{{film.release_date}}</p>                           
+                                                <p class=" message-body is-size-4">Release Date : {{film.release_date}}</p>                           
                                             </div>
                                             <ng-template #noDate>
                                                 
                                             </ng-template>
+                                        </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                </div>
             </ngx-slick-carousel>
     </div>
 
