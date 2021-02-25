@@ -1,4 +1,4 @@
-<section class="section">
+<section class="section" >
     <div class="container">
         <div class="card-content">
             <h1 class="is-size-2">TRENDING TODAY</h1>
@@ -13,7 +13,7 @@
                                 (afterChange)="afterChange($event)"
                                 (beforeChange)="beforeChange($event)">
                 <div ngxSlickItem *ngFor="let film of trendingDay.results" class="slide">
-                    <img src="https://image.tmdb.org/t/p/w200/{{film.poster_path}}" alt="{{film.original_name}}" width="100%" style="margin ; border-radius: 5px;">
+                    <img src="https://image.tmdb.org/t/p/w200/{{film.poster_path}}" alt="{{film.original_name}}" width="100%" style="margin ; border-radius: 5px;">                    
                 </div>
                 
             </ngx-slick-carousel>

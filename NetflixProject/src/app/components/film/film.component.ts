@@ -42,8 +42,7 @@ slideConfig6 = {slidesToShow: 1, slidesToScroll: 1, arrows: false, fade: true, a
    ngOnInit(): void {
      this.filmService.getTrending().subscribe(data => this.trending = data);
      this.filmService.getTrendingDay().subscribe(data => this.trendingDay = data);
-     this.filmService.getTopRated().subscribe(data => this.topRated = data);
-  
+     this.filmService.getTopRated().subscribe(data => this.topRated = data); 
     
   }
 
