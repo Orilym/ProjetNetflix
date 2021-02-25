@@ -9,7 +9,7 @@ import { FilmService } from 'src/app/film.service';
 
 export class FilmComponent implements OnInit {
 // premier carousel
-  slideConfig = {"slidesToShow": 7, "slidesToScroll": 1, arrows: false, dots: true, centerMode: true, focusOnSelect: true, asNavFor: '.slider-for'};
+  slideConfig = {"slidesToShow": 7, "slidesToScroll": 1, arrows: false, dots: true, centerMode: true, focusOnSelect: true, asNavFor: '.slider-for', autoplay: true, autoplaySpeed: 2000,};
   slideConfig2 = {slidesToShow: 1, slidesToScroll: 1, arrows: false, fade: true, asNavFor: '.slider-nav'};
 // deuxieme carousel
   slideConfig3 = {"slidesToShow": 7, "slidesToScroll": 1, arrows: false, dots: true, centerMode: true, focusOnSelect: true, asNavFor: '.slider-for3'};
